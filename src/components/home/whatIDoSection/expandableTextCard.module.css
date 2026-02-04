@@ -1,0 +1,34 @@
+.card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-card);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+.card:hover,
+.cardActive {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: right;
+}
+
+.expandWrapper {
+  display: grid;
+  transition: grid-template-rows 0.25s ease;
+  overflow: hidden;
+}
+
+.fullText {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  text-align: right;
+  min-height: 0;
+}

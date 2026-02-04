@@ -1,0 +1,29 @@
+.root {
+  padding-top: var(--header-height);
+  min-height: 100vh;
+  padding-bottom: 3rem;
+  background: var(--color-bg-dark);
+  border-top: 0.25rem solid #3b82f6;
+}
+
+.wrapper {
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem;
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e5e7eb;
+  text-align: right;
+}
+
+.subtitle {
+  margin: 0 0 1.5rem;
+  font-size: 0.875rem;
+  color: #9ca3af;
+  text-align: right;
+}

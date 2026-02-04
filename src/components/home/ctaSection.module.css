@@ -1,0 +1,44 @@
+.cta {
+  background: #e5e7eb;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 45rem;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.title {
+  margin: 0 0 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.paragraph {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.divider {
+  border: 0;
+  border-top: 0.0625rem solid #9ca3af;
+  margin: 1.5rem 0;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: #e5e7eb;
+  color: var(--color-text);
+  border: 0.125rem solid var(--color-text);
+  border-radius: var(--radius-card);
+  transition: background 0.2s, color 0.2s;
+}
+
+.button:hover {
+  background: #d1d5db;
+}

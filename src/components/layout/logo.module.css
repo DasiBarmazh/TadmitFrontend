@@ -1,0 +1,20 @@
+.logo {
+  display: block;
+  max-height: calc(var(--header-height) - 1rem);
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+.logo:focus {
+  outline: none;
+}
+
+.icon {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: calc(var(--header-height) - 1rem);
+  object-fit: contain;
+}

@@ -1,0 +1,109 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 22.5rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: right;
+}
+
+.labelText {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.labelTextDark {
+  color: #9ca3af;
+}
+
+.inputBase {
+  padding: 0.5rem 0;
+  background: transparent;
+  font: inherit;
+  direction: rtl;
+  outline: none;
+}
+
+.inputLight {
+  border: 0.0625rem solid #d1d5db;
+  border-radius: var(--radius-card);
+}
+
+.inputDark {
+  border: 0;
+  border-bottom: 0.0625rem solid #9ca3af;
+  border-radius: 0;
+  color: #f3f4f6;
+}
+
+.inputDark::placeholder {
+  color: #6b7280;
+}
+
+.inputDark:focus {
+  border-bottom-color: #d1d5db;
+}
+
+.textarea {
+  min-height: 6.25rem;
+  resize: vertical;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: var(--radius-card);
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.buttonLight {
+  background: var(--color-accent);
+  color: #1f2937;
+  border: none;
+}
+
+.buttonLight:hover:not(:disabled) {
+  background: var(--color-accent-dark);
+}
+
+.buttonDark {
+  background: transparent;
+  color: #e5e7eb;
+  border: 0.125rem solid #9ca3af;
+}
+
+.buttonDark:hover:not(:disabled) {
+  background: #4b5563;
+}
+
+.message {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.success {
+  color: #22c55e;
+}
+
+.successDark {
+  color: #4ade80;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.errorDark {
+  color: #f87171;
+}
