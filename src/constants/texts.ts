@@ -1,19 +1,15 @@
 export const TEXTS = {
-  // Layout – Header & Logo
   menu: 'תפריט',
   menuNav: 'תפריט ניווט',
   closeMenu: 'סגור תפריט',
   
 
-  // Nav links
   navHome: 'דף הבית',
   navContact: 'יצירת קשר',
 
-  // Hero
   heroHeadline: 'עסקה טובה נולדת, מהבנה מלאה של התמונה',
   heroSubline: 'מולי פשדמיסקי',
 
-  // CTA (About) – שלושה פסקאות לפי Figma
   ctaTitle: 'מולי פשדמיסקי',
   ctaParagraph1:
     'שמי מולי פשדמיסקי. התשוקה לנדל"ן מלווה אותי שנים, מתוך עניין עמוק באופן שבו מתקבלות החלטות שמשפיעות על חיים שלמים. לאורך הדרך נחשפתי מקרוב לעולם העסקאות, לשיקולים שמניעים אותו, ולפער שקיים לא פעם בין הסיפור שמוצג ללקוח לבין התמונה המלאה.',
@@ -23,7 +19,6 @@ export const TEXTS = {
     'אני מעניק ייעוץ אובייקטיבי ומקיף, ללא אינטרסים חיצוניים, מתוך מטרה אחת ברורה - לאפשר ללקוח לקבל החלטה נכונה, שקולה ומבוססת, כזו שאפשר לעמוד מאחוריה גם לאורך זמן.',
   ctaButton: 'בואו נתקדם הלאה',
 
-  // What I Do
   whatIDoTitle: 'מה אני עושה',
   whatIDoItem1Title: 'פגישות ייעוץ ואפיון לרוכשים ומשקיעים',
   whatIDoItem1FullText:
@@ -41,7 +36,6 @@ export const TEXTS = {
   whatIDoItem5FullText:
     'תיווך ממוקד בעסקאות יזמיות נבחרות. מתאים ליזמים ולמשקיעים מנוסים המחפשים חיבור לעיסקאות גדולות ומורכבות.',
 
-  // Clients – לפי Figma: name, location, year, description
   clientsTitle: 'הלקוחות שלנו',
   client1Name: 'יצחק ונועה',
   client1Location: 'בית וגן, ירושלים',
@@ -70,7 +64,7 @@ export const TEXTS = {
 
   contactAddress: 'הצבי 15 ירושלים',
   contactPhone: '0559933699',
-  contactEmail: 'mp9933699@gmail.com',
+  contactEmail: 'd0534116358@gmail.com',
 
   imageAltFallback: 'תמונה',
 } as const

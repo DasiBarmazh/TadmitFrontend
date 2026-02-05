@@ -1,9 +1,11 @@
 import { TEXTS } from '../../constants/texts'
+import {
+  getGoogleMapsUrl,
+  getMailtoUrl,
+  getWhatsAppUrl,
+} from '../../utils/contactLinks'
 import { ContactForm } from '../contact/contactForm'
 import styles from './contactPreview.module.css'
-
-const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(TEXTS.contactAddress)}`
-const WHATSAPP_URL = 'https://wa.me/972559933699'
 
 export function ContactPreview() {
   return (
@@ -17,9 +19,8 @@ export function ContactPreview() {
           <div className={styles.imageBlur} />
         </div>
         <div className={styles.links}>
-          <p className={styles.contactName}>{TEXTS.logoName}</p>
           <a
-            href={MAPS_URL}
+            href={getGoogleMapsUrl(TEXTS.contactAddress)}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
@@ -27,14 +28,14 @@ export function ContactPreview() {
             {TEXTS.contactAddress}
           </a>
           <a
-            href={WHATSAPP_URL}
+            href={getWhatsAppUrl(TEXTS.contactPhone)}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.link}
           >
             {TEXTS.contactPhone}
           </a>
-          <a href={`mailto:${TEXTS.contactEmail}`} className={styles.link}>
+          <a href={getMailtoUrl(TEXTS.contactEmail)} className={styles.link}>
             {TEXTS.contactEmail}
           </a>
         </div>
