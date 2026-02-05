@@ -8,12 +8,14 @@ export interface ImageSwitcherItem {
 }
 
 interface ImageSwitcherProps {
-  activeId: string
+  activeId: string | null
   items: ImageSwitcherItem[]
 }
 
 export function ImageSwitcher({ activeId, items }: ImageSwitcherProps) {
-  const active = items.find((item) => item.id === activeId) ?? items[0]
+  const active = activeId
+    ? items.find((item) => item.id === activeId) ?? null
+    : null
 
   if (!active || !active.src) {
     return (

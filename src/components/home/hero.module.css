@@ -33,8 +33,7 @@
 .overlay {
   position: absolute;
   top: 21.25rem;
-  left: 55.5rem;
-  bottom: 21.31rem;
+  right: 0rem;
   z-index: 1;
   display: inline-flex;
   flex-direction: column;
@@ -43,8 +42,8 @@
   direction: rtl;
   gap: 3.31rem;
   padding: 4.38rem 3.31rem;
-  max-width: 64.5rem;
   min-height: 25.1875rem;
+  max-width: 64.5rem;
   background: #8f8f8f;
   box-sizing: border-box;
 }
@@ -55,15 +54,15 @@
   font-family: Heebo;
   font-size: 6rem;
   font-style: normal;
-  font-weight: 250;
-  line-height: 96%;
+  font-weight: 100;
+  line-height: 5.76rem;
   margin: 0;
 }
 
 .sublineRow {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 2.3125rem;
   direction: rtl;
 }
 

@@ -1,9 +1,14 @@
 import { TEXTS } from '../../constants/texts'
 import styles from './hero.module.css'
 
+const HERO_IMAGE = `/imgs/${encodeURIComponent('הקריה-האקדמית-פתח-תקווה-BSTOWERS-קבוצת-בסט-BST-7-scaled.jpg')}`
+
 export function Hero() {
   return (
-    <section className={styles.hero}>
+    <section
+      className={styles.hero}
+      style={{ ['--hero-bg-image' as string]: `url(${HERO_IMAGE})` }}
+    >
       <div className={styles.imageWrapper}>
         <div className={styles.placeholder} />
       </div>

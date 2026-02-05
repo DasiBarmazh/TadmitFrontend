@@ -12,14 +12,16 @@ export function CtaSection() {
         <p className={styles.paragraph}>{TEXTS.ctaParagraph1}</p>
         <p className={styles.paragraph}>{TEXTS.ctaParagraph2}</p>
         <p className={styles.paragraph}>{TEXTS.ctaParagraph3}</p>
-        <hr className={styles.divider} />
-        <button
-          type="button"
-          className={styles.button}
-          onClick={() => navigate('/contact')}
-        >
-          {TEXTS.ctaButton}
-        </button>
+        <div className={styles.ctaRow}>
+          <button
+            type="button"
+            className={styles.button}
+            onClick={() => navigate('/contact')}
+          >
+            {TEXTS.ctaButton}
+          </button>
+          <span className={styles.divider} aria-hidden />
+        </div>
       </div>
     </section>
   )

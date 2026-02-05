@@ -1,9 +1,9 @@
 .wrapper {
-  width: 100%;
-  aspect-ratio: 4/3;
+  width: 34.4375rem;
+  height: 25.75rem;
   overflow: hidden;
-  border-radius: var(--radius-card);
-  background: var(--color-bg-card);
+  background: lightgray 50% / cover no-repeat;
+  flex-shrink: 0;
 }
 
 .image {
@@ -14,12 +14,12 @@
 }
 
 .placeholder {
-  width: 100%;
-  aspect-ratio: 4/3;
-  background: repeating-conic-gradient(#e5e7eb 0% 25%, #f3f4f6 0% 50%) 50% / 1.5rem 1.5rem;
+  width: 34.4375rem;
+  height: 25.75rem;
+  background: lightgray 50% / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-text-muted);
-  border-radius: var(--radius-card);
+  flex-shrink: 0;
 }
