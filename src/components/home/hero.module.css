@@ -4,14 +4,15 @@
   max-width: 120rem;
   height: 67.75rem;
   margin: 0 auto;
+  margin-top: 0;
   background: #fff;
-  padding: 3.56rem 3.13rem 2.53rem 3.13rem;
+  padding: 3.13rem 3.13rem 2.53rem 3.13rem;
   box-sizing: border-box;
 }
 
 .imageWrapper {
   position: absolute;
-  top: 3.56rem;
+  top: 3.13rem;
   right: 3.13rem;
   bottom: 3.69rem;
   left: 3.13rem;
@@ -44,12 +45,12 @@
   padding: 4.38rem 3.31rem;
   min-height: 25.1875rem;
   max-width: 64.5rem;
-  background: #8f8f8f;
+  background: #313C4E;
   box-sizing: border-box;
 }
 
 .headline {
-  color: #20373B;
+  color: #fff;
   text-align: right;
   font-family: Heebo;
   font-size: 6rem;
@@ -70,13 +71,13 @@
   display: block;
   width: 5.75rem;
   height: 0.0625rem;
-  background: #20373b;
+  background: #fff;
   flex-shrink: 0;
 }
 
 .subline {
   margin: 0;
-  color: var(--color-hero-headline, #20373b);
+  color: #fff;
   text-align: right;
   font-family: Heebo, sans-serif;
   font-size: 1.25rem;

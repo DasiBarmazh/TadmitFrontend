@@ -5,7 +5,9 @@ export interface ContactFormData {
   message: string
 }
 
+export type ContactFieldKey = keyof ContactFormData
+
 export interface ContactApiResponse {
   success: boolean
-  error?: string
+  errors?: Partial<Record<ContactFieldKey, string>>
 }

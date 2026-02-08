@@ -1,65 +1,113 @@
 .form {
+  --form-accent: var(--contact-accent, #ddc4a2);
+  --form-accent-hover: #c9ad85;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 22.5rem;
+  align-items: flex-start;
+  gap: 0.9rem;
+  width: 100%;
+  max-width: min(15.5rem, 75vw);
+  box-sizing: border-box;
 }
 
 .label {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.45rem; 
   text-align: right;
+  align-self: stretch;
+  width: 100%;
 }
 
 .labelText {
-  font-size: 0.875rem;
+  font-size: clamp(0.8125rem, 2vw, 0.875rem);
   color: var(--color-text-muted);
 }
 
 .labelTextDark {
-  color: #9ca3af;
+  color: #fff;
+  font-family: Heebo, sans-serif;
+  font-size: clamp(0.95rem, 2.2vw, 1.3rem);
+  font-style: normal;
+  font-weight: 100;
+  line-height: 115%;
+  text-transform: capitalize;
 }
 
 .inputBase {
-  padding: 0.5rem 0;
   background: transparent;
   font: inherit;
   direction: rtl;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 2rem;
+  padding: 0.2rem 0;
 }
 
 .inputLight {
   border: 0.0625rem solid #d1d5db;
   border-radius: var(--radius-card);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .inputDark {
   border: 0;
-  border-bottom: 0.0625rem solid #9ca3af;
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.45);
   border-radius: 0;
-  color: #f3f4f6;
+  color: #fff;
+  text-align: right;
+  font-family: Heebo, sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%;
+  text-transform: capitalize;
 }
 
 .inputDark::placeholder {
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .inputDark:focus {
-  border-bottom-color: #d1d5db;
+  border-bottom-color: var(--form-accent);
 }
 
 .textarea {
-  min-height: 6.25rem;
-  resize: vertical;
-}
+  min-height: 3.6rem;
+  resize: none;
 
+  border: 0;
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.45);
+
+  background-image:
+    linear-gradient(
+      to bottom,
+      transparent calc(35% - 0.03125rem),
+      rgba(255, 255, 255, 0.45) calc(35% - 0.03125rem),
+      rgba(255, 255, 255, 0.45) calc(35% + 0.03125rem),
+      transparent calc(35% + 0.03125rem)
+    );
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
 .button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: var(--radius-card);
-  font-weight: 600;
+  color: #fff;
+  text-align: right;
+  font-family: Heebo;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 250;
+  line-height: normal;
+  text-transform: uppercase;
+  border-radius: 0;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 2.75rem;
+  cursor: pointer;
+  border: none;
+  width: 100%;
 }
 
 .button:disabled {
@@ -70,7 +118,6 @@
 .buttonLight {
   background: var(--color-accent);
   color: #1f2937;
-  border: none;
 }
 
 .buttonLight:hover:not(:disabled) {
@@ -78,18 +125,24 @@
 }
 
 .buttonDark {
-  background: transparent;
-  color: #e5e7eb;
-  border: 0.125rem solid #9ca3af;
+  background: var(--form-accent);
+  color: #fff;
 }
 
 .buttonDark:hover:not(:disabled) {
-  background: #4b5563;
+  background: var(--form-accent-hover);
 }
 
 .message {
   margin: 0;
-  font-size: 0.875rem;
+  font-size: clamp(0.8125rem, 2vw, 0.875rem);
+}
+
+.fieldError {
+  margin: 0;
+  margin-top: 0.25rem;
+  font-size: clamp(0.6875rem, 1.8vw, 0.75rem);
+  text-align: right;
 }
 
 .success {
@@ -106,4 +159,30 @@
 
 .errorDark {
   color: #f87171;
+}
+
+@media (max-width: 48rem) {
+  .form {
+    gap: clamp(1rem, 4vw, 1.5rem);
+    max-width: 100%;
+  }
+
+  .inputBase {
+    min-height: 2.5rem;
+  }
+
+  .button {
+    min-height: 2.5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 24rem) {
+  .labelTextDark {
+    font-size: 0.9375rem;
+  }
+
+  .inputDark {
+    font-size: 0.9375rem;
+  }
 }

@@ -1,9 +1,9 @@
-/* הדר לפי Figma: 108.4375rem, flex, space-between, flex-start, padding מדויק */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+
   width: 100%;
   max-width: 108.4375rem;
   height: var(--header-height);
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 3.19rem 2.31rem 3.05rem 3rem;
+  padding: 5.0rem 5.63rem 5.0rem 6.31rem;
   z-index: 100;
   box-sizing: border-box;
 }
@@ -27,8 +27,9 @@
 }
 
 .line {
-  width: 1.5rem;
+  display: block;
+  width: 2.9375rem;
   height: 0.125rem;
-  background: #000;
-  border-radius: 0.0625rem;
+  background: #20373b;
+  flex-shrink: 0;
 }

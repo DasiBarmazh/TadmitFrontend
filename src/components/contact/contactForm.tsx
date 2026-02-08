@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useSubmitContactMutation } from '../../api/contactApi'
 import { TEXTS } from '../../constants/texts'
-import type { ContactFormData } from '../../types/contact'
+import type { ContactFormData, ContactFieldKey, ContactApiResponse } from '../../types/contact'
+import { contactSchema } from '../../schemas/contactSchema'
 import styles from './contactForm.module.css'
 
 const initial: ContactFormData = {
@@ -11,19 +12,80 @@ const initial: ContactFormData = {
   message: '',
 }
 
-export function ContactForm({ dark = false }: { dark?: boolean }) {
+export type ContactFormRenderField = (
+  key: ContactFieldKey,
+  input: React.ReactNode,
+  error: React.ReactNode
+) => React.ReactNode
+
+export interface ContactFormProps {
+  dark?: boolean
+  renderField?: ContactFormRenderField
+}
+
+function defaultRenderField(
+  _key: ContactFieldKey,
+  input: React.ReactNode,
+  error: React.ReactNode,
+  labelText: string,
+  labelTextClass: string,
+  labelClass: string
+) {
+  return (
+    <label className={labelClass}>
+      <span className={labelTextClass}>{labelText}</span>
+      {input}
+      {error}
+    </label>
+  )
+}
+
+export function ContactForm({ dark = false, renderField }: ContactFormProps) {
   const [form, setForm] = useState<ContactFormData>(initial)
+  const [fieldErrors, setFieldErrors] = useState<
+    Partial<Record<ContactFieldKey, string>>
+  >({})
   const [submit, { isLoading, isSuccess, isError, error }] =
     useSubmitContactMutation()
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name } = e.target
+
+    setForm((prev) => ({ ...prev, [name]: e.target.value }))
+
+    if (fieldErrors[name as ContactFieldKey]) {
+      setFieldErrors((prev) => {
+        const next = { ...prev }
+        delete next[name as ContactFieldKey]
+        return next
+      })
+    }
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
+    const result = contactSchema.safeParse(form)
+
+    if (!result.success) {
+      const flat = result.error.flatten().fieldErrors
+      const nextErrors: Partial<Record<ContactFieldKey, string>> = {}
+
+      ;(Object.keys(flat) as ContactFieldKey[]).forEach((key) => {
+        const messages = flat[key]
+        if (messages && messages.length > 0) {
+          nextErrors[key] = messages[0]
+        }
+      })
+
+      setFieldErrors(nextErrors)
+      return
+    }
+
+    setFieldErrors({})
+
     submit(form)
       .unwrap()
       .then(() => setForm(initial))
@@ -31,15 +93,35 @@ export function ContactForm({ dark = false }: { dark?: boolean }) {
   }
 
   const labelTextClass = dark ? styles.labelTextDark : styles.labelText
+  const labelClass = styles.label
   const inputClass = [styles.inputBase, dark ? styles.inputDark : styles.inputLight].join(' ')
   const buttonClass = [styles.button, dark ? styles.buttonDark : styles.buttonLight].join(' ')
   const successClass = dark ? styles.successDark : styles.success
   const errorClass = dark ? styles.errorDark : styles.error
 
+  const apiErrors: Partial<Record<ContactFieldKey, string>> =
+    error && 'data' in error && (error as { data?: ContactApiResponse }).data
+      ? ((error as { data?: ContactApiResponse }).data?.errors ?? {})
+      : {}
+
+  const getErrorFor = (key: ContactFieldKey): string | undefined =>
+    fieldErrors[key] ?? apiErrors[key]
+
+  const renderRow = (key: ContactFieldKey, labelText: string, input: React.ReactNode) => {
+    const err = getErrorFor(key) ? (
+      <p className={[styles.fieldError, errorClass].join(' ')}>{getErrorFor(key)}</p>
+    ) : null
+    if (renderField) {
+      return renderField(key, input, err)
+    }
+    return defaultRenderField(key, input, err, labelText, labelTextClass, labelClass)
+  }
+
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label className={styles.label}>
-        <span className={labelTextClass}>{TEXTS.formFullName}</span>
+      {renderRow(
+        'fullName',
+        TEXTS.formFullName,
         <input
           type="text"
           name="fullName"
@@ -48,9 +130,10 @@ export function ContactForm({ dark = false }: { dark?: boolean }) {
           required
           className={inputClass}
         />
-      </label>
-      <label className={styles.label}>
-        <span className={labelTextClass}>{TEXTS.formPhone}</span>
+      )}
+      {renderRow(
+        'phone',
+        TEXTS.formPhone,
         <input
           type="tel"
           name="phone"
@@ -59,9 +142,10 @@ export function ContactForm({ dark = false }: { dark?: boolean }) {
           required
           className={inputClass}
         />
-      </label>
-      <label className={styles.label}>
-        <span className={labelTextClass}>{TEXTS.formEmail}</span>
+      )}
+      {renderRow(
+        'email',
+        TEXTS.formEmail,
         <input
           type="email"
           name="email"
@@ -70,9 +154,10 @@ export function ContactForm({ dark = false }: { dark?: boolean }) {
           required
           className={inputClass}
         />
-      </label>
-      <label className={styles.label}>
-        <span className={labelTextClass}>{TEXTS.formMessage}</span>
+      )}
+      {renderRow(
+        'message',
+        TEXTS.formMessage,
         <textarea
           name="message"
           value={form.message}
@@ -81,7 +166,7 @@ export function ContactForm({ dark = false }: { dark?: boolean }) {
           rows={4}
           className={[inputClass, styles.textarea].join(' ')}
         />
-      </label>
+      )}
       <button type="submit" disabled={isLoading} className={buttonClass}>
         {isLoading ? TEXTS.formSubmitting : TEXTS.formSubmit}
       </button>
@@ -92,9 +177,7 @@ export function ContactForm({ dark = false }: { dark?: boolean }) {
       )}
       {isError && (
         <p className={[styles.message, errorClass].join(' ')}>
-          {error && 'data' in error
-            ? String((error as { data?: { error?: string } }).data?.error)
-            : TEXTS.formError}
+          {TEXTS.formError}
         </p>
       )}
     </form>
