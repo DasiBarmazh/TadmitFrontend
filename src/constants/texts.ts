@@ -7,7 +7,7 @@ export const TEXTS = {
   navHome: 'דף הבית',
   navContact: 'יצירת קשר',
 
-  heroHeadline: 'עסקה טובה נולדת, מהבנה מלאה של התמונה',
+  heroHeadline: 'עסקה טובה נולדת,\nמהבנה מלאה של התמונה',
   heroSubline: 'מולי פשדמיסקי',
 
   ctaTitle: 'מולי פשדמיסקי',

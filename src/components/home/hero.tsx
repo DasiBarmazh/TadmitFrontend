@@ -12,7 +12,8 @@ export function Hero() {
         <div className={styles.placeholder} />
       </div>
       <div className={styles.overlay}>
-        <p className={styles.headline}>{TEXTS.heroHeadline}</p>
+        <p className={styles.headline} style={{ whiteSpace: 'pre-line' }}>
+          {TEXTS.heroHeadline}</p>
         <div className={styles.sublineRow}>
           <span className={styles.decorativeLine} aria-hidden />
           <span className={styles.subline}>{TEXTS.heroSubline}</span>

@@ -1,95 +1,113 @@
-/* ===== Section ===== */
 .section {
   position: relative;
   direction: rtl;
   width: 100%;
-  padding: 5rem 3.3rem;
+  --pad-x: 3rem;
+  padding: 15rem var(--pad-x);
   background: #ffffff;
   box-sizing: border-box;
   overflow: hidden;
 }
 
-/* ===== Title ===== */
 .titleBlock {
   position: absolute;
-  top: 2.5rem;
-  right: 3.3rem;
+  left: calc(-1 * var(--pad-x));
+  top: -3.25rem; 
   z-index: 3;
-
-  padding: 1rem 2.6rem;
+  padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 4vw, 2.3125rem);
   background: #2f3a4a;
-  border-radius: 0.3rem;
 }
 
 .title {
   margin: 0;
   color: #ffffff;
+  text-align: right;
   font-family: Heebo, sans-serif;
-  font-size: clamp(2.8rem, 4vw, 4.2rem);
-  font-weight: 300;
-  line-height: 1;
+  font-size: clamp(2.3rem, 4.5vw, 5rem); 
+  font-weight: 100; 
+  line-height: 0.96;
   white-space: nowrap;
 }
 
-/* ===== Visual Wrapper ===== */
 .center {
-  position: relative;
   width: 100%;
-  max-width: 78rem;
-  margin: 0 auto;
+  max-width: 114rem;
+  margin: 0rem auto;
+  padding-inline: 0.0rem;
 }
 
-/* ===== Image Layer ===== */
+.visualWrapper {
+  position: relative;
+  min-height: 28rem;
+}
+
 .imageLayer {
-  width: 100%;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
+  z-index: 1;
 }
 
 .image {
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
+  min-width: 100%;
   display: block;
   object-fit: cover;
+  object-position: center;
 }
 
-/* ===== Glass Layer (Cards Overlay) ===== */
-.cards {
+.glassLayer {
   position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  width: 46%;
-  padding: 2.6rem 3.2rem;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cards {
+  width: 50%;
+  height: 100%;
+
+  padding: clamp(2rem, 3vw, 4rem);
+  padding-left: calc(clamp(2rem, 3vw, 4rem) + 6rem);
+
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
-  background: rgba(205, 205, 205, 0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  gap: clamp(0.8rem, 1.4vw, 1.3rem);
+
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11x);
+
   box-sizing: border-box;
-  z-index: 2;
 }
 
-/* ===== Responsive ===== */
+.cards * {
+  font-size: clamp(0.75rem, 1.1vw, 1rem);
+  line-height: 1.3;
+}
+
 @media (max-width: 64rem) {
   .section {
-    padding: 4rem 2rem;
+    --pad-x: 2rem;
+    padding: 4rem var(--pad-x);
   }
 
   .titleBlock {
-    right: 2rem;
-    top: 2rem;
+    top: -1.75rem;
   }
 
   .cards {
-    width: 55%;
-    padding: 2.2rem 2.5rem;
+    width: 100%;
   }
 }
 
 @media (max-width: 56.25rem) {
   .section {
-    padding: 3rem 1.5rem;
+    --pad-x: 1.5rem;
+    padding: 3rem var(--pad-x);
   }
 
   .titleBlock {
@@ -97,25 +115,27 @@
     margin-bottom: 2rem;
   }
 
-  .center {
-    margin-top: 1rem;
+  .visualWrapper {
+    min-height: auto;
+  }
+
+  .imageLayer {
+    position: static;
+  }
+
+  .image {
+    height: auto;
+    width: 100%;
+  }
+
+  .glassLayer {
+    position: static;
   }
 
   .cards {
-    position: static;
-    transform: none;
     width: 100%;
+    height: auto;
     padding: 2rem;
     margin-top: 1.5rem;
-  }
-}
-
-@media (max-width: 30rem) {
-  .title {
-    font-size: 2.2rem;
-  }
-
-  .cards {
-    padding: 1.4rem;
   }
 }

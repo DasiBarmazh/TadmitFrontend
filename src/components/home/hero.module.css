@@ -2,20 +2,19 @@
   position: relative;
   width: 100%;
   max-width: 120rem;
-  height: 67.75rem;
+
+  aspect-ratio: 113.75 / 60.5;
+
   margin: 0 auto;
-  margin-top: 0;
   background: #fff;
-  padding: 3.13rem 3.13rem 2.53rem 3.13rem;
+
+  padding: clamp(1.5rem, 3vw, 3.13rem);
   box-sizing: border-box;
 }
 
 .imageWrapper {
   position: absolute;
-  top: 3.13rem;
-  right: 3.13rem;
-  bottom: 3.69rem;
-  left: 3.13rem;
+  inset: clamp(1.5rem, 3vw, 3.13rem);
   pointer-events: none;
   box-sizing: border-box;
 }
@@ -33,43 +32,53 @@
 
 .overlay {
   position: absolute;
-  top: 21.25rem;
-  right: 0rem;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+
   z-index: 1;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   direction: rtl;
-  gap: 3.31rem;
-  padding: 4.38rem 3.31rem;
-  min-height: 25.1875rem;
-  max-width: 64.5rem;
+
+  gap: clamp(1.5rem, 2.6vw, 3.31rem);
+
+  padding:
+    clamp(2rem, 3.65vw, 4.38rem)
+    clamp(1.5rem, 2.75vw, 3.31rem);
+
+  min-height: clamp(18rem, 35vh, 25.1875rem);
+  max-width: clamp(22rem, 60vw, 64.5rem);
+
   background: #313C4E;
   box-sizing: border-box;
 }
+
 
 .headline {
   color: #fff;
   text-align: right;
   font-family: Heebo;
-  font-size: 6rem;
-  font-style: normal;
-  font-weight: 100;
-  line-height: 5.76rem;
+
+  font-size: clamp(2.4rem, 5vw, 6rem);
+  line-height: 0.96;
+
+  font-weight: 300;
   margin: 0;
 }
+
 
 .sublineRow {
   display: flex;
   align-items: center;
-  gap: 2.3125rem;
+  gap: clamp(1rem, 2vw, 2.3125rem);
   direction: rtl;
 }
 
 .decorativeLine {
-  display: block;
-  width: 5.75rem;
+  width: clamp(3rem, 6vw, 5.75rem);
   height: 0.0625rem;
   background: #fff;
   flex-shrink: 0;
@@ -80,9 +89,9 @@
   color: #fff;
   text-align: right;
   font-family: Heebo, sans-serif;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 250;
-  line-height: normal;
+
+  font-size: clamp(0.9rem, 1.04vw, 1.25rem);
+
+  font-weight: 300;
   text-transform: uppercase;
 }
