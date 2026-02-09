@@ -15,23 +15,23 @@
   grid-template-columns: auto auto auto;
   grid-template-rows: auto 1fr;
   column-gap: clamp(4rem, 8vw, 10rem);
-  row-gap: clamp(2.5rem, 5vw, 5rem);
-  padding: clamp(3rem, 6vw, 6rem);
+  row-gap: clamp(1rem, 1vw, 1rem);
+  padding: 1rem;
 }
-
 /* ===== TITLE ===== */
 
 .title {
   align-self: start;
   grid-column: 3;
   grid-row: 1;
+  margin-top: clamp(10rem, 6vw, 8rem);
   margin-left: calc(-1 * clamp(3rem, 6vw, 6rem));
   padding: 2.1875rem 3.3125rem;
   background: var(--title-bg);
   color: var(--title-text);
   font-family: Heebo, sans-serif;
   font-size: clamp(1.5rem, 3vw, 4rem);
-  font-weight: 100;
+  font-weight: 300;
   line-height: 96%;
   white-space: nowrap;
 }
@@ -53,6 +53,8 @@
   overflow: hidden;
 }
 .imagesInner {
+  margin-top: clamp(12rem, 6vw, 8rem);
+  transform: scale(1.30);
   position: absolute;
   top: 0;        
   left: 0;
@@ -60,7 +62,7 @@
 .blur {
   width: 100%;
   display: block;
-  filter: blur(12px);
+  filter: blur(6px);
 }
 
 .blurWrap::after {
@@ -73,7 +75,7 @@
 .sharp {
   position: absolute;
   bottom: 0;
-  left: -18%;
+  left: -12%;
   width: 68%;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
