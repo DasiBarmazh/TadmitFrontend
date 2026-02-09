@@ -127,6 +127,7 @@ export function ContactForm({ dark = false, renderField }: ContactFormProps) {
           name="fullName"
           value={form.fullName}
           onChange={handleChange}
+          placeholder={TEXTS.formFullName}
           required
           className={inputClass}
         />
@@ -139,6 +140,7 @@ export function ContactForm({ dark = false, renderField }: ContactFormProps) {
           name="phone"
           value={form.phone}
           onChange={handleChange}
+          placeholder={TEXTS.formPhone}
           required
           className={inputClass}
         />
@@ -151,6 +153,7 @@ export function ContactForm({ dark = false, renderField }: ContactFormProps) {
           name="email"
           value={form.email}
           onChange={handleChange}
+          placeholder={TEXTS.formEmail}
           required
           className={inputClass}
         />
@@ -162,6 +165,7 @@ export function ContactForm({ dark = false, renderField }: ContactFormProps) {
           name="message"
           value={form.message}
           onChange={handleChange}
+          placeholder={TEXTS.formMessage}
           required
           rows={4}
           className={[inputClass, styles.textarea].join(' ')}

@@ -51,8 +51,7 @@ export const TEXTS = {
   client3Text: 'תוכן לדוגמה – לקוח ג.',
 
   contactUsTitle: 'Contact us',
-  formFullName: 'שם מלא',
-  formName: 'שם',
+  formFullName: 'שם',
   formPhone: 'טלפון',
   formEmail: 'Email',
   formMessage: 'הודעה',
@@ -75,6 +74,10 @@ export const TEXTS = {
   contactAddress: 'הצבי 15 ירושלים',
   contactPhone: '0559933699',
   contactEmail: 'd0534116358@gmail.com',
+
+  footerDesignBy: 'Riki Kahan Design',
+  footerAuto: 'Auto',
+  footerTagline: 'מולי פשדמיסקי יועץ וליווי השקעות בנדל"ן',
 
   imageAltFallback: 'תמונה',
 } as const

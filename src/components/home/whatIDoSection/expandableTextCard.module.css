@@ -7,21 +7,21 @@
   gap: 0.4375rem;
   align-self: stretch;
   border-radius: 0.3125rem;
-  border-right: 2px solid #808080;
-  background: rgba(172, 172, 172, 0.5);
+  border-right: 2px solid #519CAB;
+  background: rgba(201, 180, 153, 0.8);
   box-sizing: border-box;
   transition: background 0.2s;
 }
 
 .card:hover,
 .cardActive {
-  background: rgba(172, 172, 172, 0.7);
+  background: rgba(201, 180, 153, 0.95);
 }
 
 .title {
   margin: 0;
   width: 100%;
-  color: #20373b;
+  color: #20373B;
   text-align: right;
   font-family: Heebo, sans-serif;
   font-size: 1.25rem;
@@ -41,7 +41,7 @@
 .fullText {
   margin: 0;
   width: 100%;
-  color: #20373b;
+  color: #20373B;
   text-align: right;
   font-family: Heebo, sans-serif;
   font-size: 1.25rem;
