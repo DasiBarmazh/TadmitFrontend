@@ -1,10 +1,11 @@
 import { TEXTS } from '../../constants/texts'
 import styles from './hero.module.css'
 import heroImage from '../../../imgs/1.png'
+import { Container } from '../ui/container'
 
 export function Hero() {
   return (
-    <section className={styles.hero}>
+    <Container as="section" className={styles.hero}>
       <div className={styles.imageLayer}>
         <img src={heroImage} alt="" className={styles.image} />
       </div>
@@ -16,6 +17,6 @@ export function Hero() {
           <span className={styles.subline}>{TEXTS.heroSubline}</span>
         </div>
       </div>
-    </section>
+    </Container>
   )
 }

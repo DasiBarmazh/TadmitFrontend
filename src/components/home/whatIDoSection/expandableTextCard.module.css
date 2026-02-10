@@ -23,7 +23,6 @@
   width: 100%;
   color: var(--color-ink);
   text-align: right;
-  font-family: var(--font-body);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
@@ -43,7 +42,6 @@
   width: 100%;
   color: var(--color-ink);
   text-align: right;
-  font-family: var(--font-body);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 100;

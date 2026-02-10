@@ -1,12 +1,10 @@
 .hero {
   position: relative;
   width: 100%;
-  max-width: 120rem;
   min-height: clamp(42rem, 60vw, 60rem);
   overflow: hidden;
 
-  margin: 0 auto;
-  background: #fff;
+  background: var(--surface-page);
 
   --hero-pad: clamp(1.5rem, 3vw, 3.13rem);
   padding: var(--hero-pad);
@@ -51,20 +49,19 @@
 
   max-width: clamp(22rem, 60vw, 64.5rem);
 
-  background: var(--color-navy-700);
+  background: var(--surface-invert);
   box-sizing: border-box;
 }
 
 
 .headline {
-  color: #fff;
+  color: var(--text-invert);
   text-align: right;
-  font-family: Heebo;
 
   font-size: clamp(2.4rem, 5vw, 6rem);
   line-height: 0.96;
 
-  font-weight: 250;
+  font-weight: var(--font-weight-light);
   margin: 0;
 }
 
@@ -79,18 +76,17 @@
 .decorativeLine {
   width: clamp(3rem, 6vw, 5.75rem);
   height: 0.0625rem;
-  background: #fff;
+  background: var(--text-invert);
   flex-shrink: 0;
 }
 
 .subline {
   margin: 0;
-  color: #fff;
+  color: var(--text-invert);
   text-align: right;
-  font-family: Heebo, sans-serif;
 
   font-size: clamp(0.9rem, 1.04vw, 1.25rem);
 
-  font-weight: 250;
+  font-weight: var(--font-weight-light);
   text-transform: uppercase;
 }

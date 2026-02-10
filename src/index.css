@@ -10,8 +10,8 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-body), system-ui, sans-serif;
-  color: var(--color-text);
+  font-family: var(--font-body);
+  color: var(--text-primary);
   line-height: 1.5;
   overflow-x: hidden;
 }

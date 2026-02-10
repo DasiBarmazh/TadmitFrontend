@@ -71,6 +71,22 @@
   --color-surface-cta: #e9edee;
 
   
+  --surface-page: var(--color-white);
+  --surface-cta: var(--color-surface-cta);
+  --surface-invert: var(--color-navy-700);
+  --surface-panel: var(--color-bg-dark);
+
+  --text-primary: var(--color-text);
+  --text-muted: var(--color-text-muted);
+  --text-invert: var(--color-white);
+
+  --border-subtle: var(--color-slate-300);
+  --border-strong: var(--color-ink);
+
+  --divider-on-light: var(--color-black);
+  --divider-on-dark: rgba(255, 255, 255, 0.45);
+
+  
   --radius-xs: 0.25rem;
   --radius-sm: 0.3rem;
   --radius-md: 0.5rem;

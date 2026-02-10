@@ -30,7 +30,6 @@
 .tagline {
   color: var(--color-white);
   text-align: right;
-  font-family: var(--font-body);
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 100;

@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import { TEXTS } from '../../constants/texts'
 import styles from './ctaSection.module.css'
+import { Container } from '../ui/container'
 
 export function CtaSection() {
   const navigate = useNavigate()
 
   return (
-    <section className={styles.cta}>
+    <Container as="section" className={styles.cta}>
       <div className={styles.wrapper}>
         <h2 className={styles.title}>{TEXTS.ctaTitle}</h2>
         <p className={styles.paragraph}>{TEXTS.ctaParagraph1}</p>
@@ -23,6 +24,6 @@ export function CtaSection() {
           <span className={styles.divider} aria-hidden />
         </div>
       </div>
-    </section>
+    </Container>
   )
 }
