@@ -6,7 +6,7 @@
   align-items: flex-end;
   align-self: stretch;
   border-radius: 0.3rem;
-  border-right: 2px solid #519CAB;
+  border-right: 2px solid var(--color-teal-500);
   background: rgba(201, 180, 153, 0.8);
   box-sizing: border-box;
   transition: background 0.2s;
@@ -21,9 +21,9 @@
 .title {
   margin: 0;
   width: 100%;
-  color: #20373B;
+  color: var(--color-ink);
   text-align: right;
-  font-family: Heebo, sans-s  erif;
+  font-family: var(--font-body);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
@@ -41,9 +41,9 @@
 .fullText {
   margin: 0;
   width: 100%;
-  color: #20373B;
+  color: var(--color-ink);
   text-align: right;
-  font-family: Heebo, sans-serif;
+  font-family: var(--font-body);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 100;

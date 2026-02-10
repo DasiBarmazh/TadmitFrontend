@@ -5,11 +5,11 @@
   align-items: center;
   gap: 0.625rem;
   width: 100%;
-  max-width: 120rem;
+  max-width: var(--container-max);
   height: 41.6875rem;
   padding: 4.875rem 3.125rem;
   margin: 0 auto;
-  background: #E9EDEE;
+  background: var(--color-surface-cta);
   box-sizing: border-box;
 }
 
@@ -26,8 +26,8 @@
 
 .title {
   margin: 0;
-  color: #000;
-  font-family: Heebo, sans-serif;
+  color: var(--color-black);
+  font-family: var(--font-heading);
   font-size: 4rem;
   font-style: normal;
   font-weight: 300;
@@ -40,8 +40,8 @@
 
   max-width: 42rem;
 
-  color: #000;
-  font-family: Heebo, sans-serif;
+  color: var(--color-black);
+  font-family: var(--font-body);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 300;
@@ -68,24 +68,24 @@
   display: block;
   width: 11.18769rem;
   height: 0.0625rem;
-  background: #000;
+  background: var(--color-black);
   flex-shrink: 0;
 }
 
 .button {
   padding: 0.75rem 1.5rem;
-  background: #E9EDEE;
-  color: #000;
-  font-family: Heebo, sans-serif;
+  background: var(--color-surface-cta);
+  color: var(--color-black);
+  font-family: var(--font-body);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 100;
   line-height: normal;
   text-transform: uppercase;
-  border: 0.125rem solid #000;
+  border: 0.125rem solid var(--color-black);
   transition: background 0.2s, color 0.2s;
 }
 
 .button:hover {
-  background: #9ca3af;
+  background: var(--color-slate-400);
 }

@@ -1,0 +1,99 @@
+
+:root {
+
+  --header-height: 5.19rem;
+  --container-max: 120rem;
+
+ 
+  --font-sans: Heebo, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-body: var(--font-sans);
+  --font-heading: var(--font-sans);
+
+  --font-weight-thin: 100;
+  --font-weight-light: 250;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+
+  --space-0: 0;
+  --space-1: 0.25rem; 
+  --space-2: 0.5rem;  
+  --space-3: 0.75rem; 
+  --space-4: 1rem;    
+  --space-5: 1.5rem;  
+  --space-6: 2rem;    
+  --space-7: 3rem;    
+  --space-8: 4rem;    
+  --space-9: 6rem;    
+
+  
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-ink: #20373b;
+  --color-navy-700: #313c4e;
+  --color-navy-750: #313b4c;
+  --color-navy-800: #2f3a4a;
+
+  --color-sand-200: #ddc4a2;
+  --color-sand-250: #c9ad85;
+  --color-sand-300: #c9b499;
+
+  --color-teal-500: #519cab;
+
+  --color-slate-50: #f3f4f6;
+  --color-slate-200: #e5e7eb;
+  --color-slate-300: #d1d5db;
+  --color-slate-400: #9ca3af;
+  --color-slate-500: #6b7280;
+  --color-slate-600: #4b5563;
+  --color-slate-700: #374151;
+  --color-slate-800: #1f2937;
+
+  
+  --color-green-500: #22c55e;
+  --color-green-400: #4ade80;
+  --color-red-600: #dc2626;
+  --color-red-400: #f87171;
+  --color-blue-500: #3b82f6;
+
+
+  --color-hero-headline: var(--color-ink);
+  --color-accent: #e8a735;
+  --color-accent-dark: #d49428;
+  --color-bg-cta: var(--color-slate-500);
+  --color-bg-card: var(--color-slate-50);
+  --color-bg-dark: var(--color-slate-700);
+  --color-text: var(--color-slate-800);
+  --color-text-muted: var(--color-slate-500);
+
+  --color-surface-cta: #e9edee;
+
+  
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.3rem;
+  --radius-md: 0.5rem;
+  --radius-card: var(--radius-md);
+
+  --shadow-sm: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.25);
+  --shadow-card: var(--shadow-sm);
+  --shadow-sidebar: 0.25rem 0 0.75rem rgba(0, 0, 0, 0.1);
+
+  --overlay-scrim: rgba(0, 0, 0, 0.3);
+  --overlay-soft: rgba(156, 170, 179, 0.55);
+  --glass-bg: rgba(255, 255, 255, 0.22);
+
+  
+  --duration-fast: 150ms;
+  --duration-medium: 250ms;
+  --easing-standard: ease;
+
+  
+  --z-header: 100;
+  --z-sidebar-overlay: 200;
+  --z-sidebar: 201;
+}
+

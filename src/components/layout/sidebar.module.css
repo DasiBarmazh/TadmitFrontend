@@ -1,8 +1,8 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 200;
+  background: var(--overlay-scrim);
+  z-index: var(--z-sidebar-overlay);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;
@@ -20,10 +20,10 @@
   width: 16.25rem;
   max-width: 85vw;
   height: 100vh;
-  background: #fff;
-  z-index: 201;
+  background: var(--color-white);
+  z-index: var(--z-sidebar);
   padding: 1.5rem;
-  box-shadow: 0.25rem 0 0.75rem rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sidebar);
   transform: translateX(-100%);
   transition: transform 0.25s ease;
 }

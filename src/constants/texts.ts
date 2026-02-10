@@ -51,6 +51,7 @@ export const TEXTS = {
   client3Text: 'תוכן לדוגמה – לקוח ג.',
 
   contactUsTitle: 'Contact us',
+  contactPageTitle: 'השאירו פרטים ונחזור אליכם בהקדם.',
   formFullName: 'שם',
   formPhone: 'טלפון',
   formEmail: 'Email',

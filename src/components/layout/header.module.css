@@ -51,7 +51,7 @@
 
   height: 2px;
 
-  background-color: #20373b;
+  background-color: var(--color-ink);
   flex-shrink: 0;
 
   transform: translateZ(0);
@@ -63,8 +63,10 @@
   width: clamp(1.8rem, 2.45vw, 2.94rem);
   height: 2px;
 
-  background-color: #20373b;
+  background-color: var(--color-ink);
   flex-shrink: 0;
 
-  box-shadow: 0 -8px 0 0 #20373b, 0 8px 0 0 #20373b;
+  box-shadow:
+    0 -8px 0 0 var(--color-ink),
+    0 8px 0 0 var(--color-ink);
 }

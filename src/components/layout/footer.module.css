@@ -1,5 +1,5 @@
 .footer {
-  background: #313b4c;
+  background: var(--color-navy-750);
   padding: 1.6rem 25px;
   box-sizing: border-box;
 }
@@ -28,9 +28,9 @@
 
 .left,
 .tagline {
-  color: #fff;
+  color: var(--color-white);
   text-align: right;
-  font-family: Heebo, sans-serif;
+  font-family: var(--font-body);
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 100;

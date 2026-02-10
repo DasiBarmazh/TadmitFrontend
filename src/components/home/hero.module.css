@@ -51,7 +51,7 @@
 
   max-width: clamp(22rem, 60vw, 64.5rem);
 
-  background: #313C4E;
+  background: var(--color-navy-700);
   box-sizing: border-box;
 }
 
