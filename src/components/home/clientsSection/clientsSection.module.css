@@ -1,223 +1,290 @@
 /* =========================
    Section
    ========================= */
-.section {
-  background: var(--surface-page);
-  padding-block: clamp(6rem, 12vw, 10rem);
-  box-sizing: border-box;
-  overflow: hidden;
-}
+   .section {
+    --section-pad: clamp(1rem, 3vw, 3rem);
+    background: var(--surface-page);
+    padding-top: var(--section-pad);
+    padding-bottom: var(--section-pad);
+    padding-left: var(--section-pad);
+    padding-right: 0;
 
-.inner {
-  position: relative;
-  direction: rtl;
-}
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .inner {
+    position: relative;
+    direction: rtl;
+  }
+  
+ 
+     .titleBlock {
+      position: absolute;
+      inset-inline-end: 0;         
+      top: clamp(0rem, 3vw, 4rem);  
+      z-index: 2;
+    
+      margin-bottom: 0; 
+     }
 
-/* =========================
-   Title
-   ========================= */
-.titleBlock {
-  display: inline-flex;
-  padding: 4.375rem 3.3125rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 0.625rem;
-  background: var(--color-sand-300);
-  margin-bottom: clamp(4rem, 8vw, 6rem);
-}
+  .title {
+    margin: 0;
+    font-size: clamp(2.4rem, 5vw, 6rem);
+    font-weight: var(--font-weight-thin);
+    line-height: 0.96;
+    color: var(--color-ink);
+    text-align: right;
+  }
+  
+  
+  .layout {
+    /* Stage (info box) */
+    --stage-width: clamp(22rem, 32.14vw, 38.5625rem);
+    --stage-height: clamp(36rem, 49.9vw, 59.875rem);
+    --stage-pad-y: clamp(6rem, 10.26vw, 12.3125rem);
+    --stage-pad-x: clamp(3rem, 5.57vw, 6.6875rem);
+  
+    /* Carousel */
+    --carousel-width: clamp(60rem, 71.15vw, 85.375rem);
+    --carousel-gap: clamp(2.5rem, 4.17vw, 5rem);
+  
+    /* Thumbnails */
+    --thumb-width: clamp(7rem, 9.27vw, 11.125rem);
+    --thumb-height: clamp(9rem, 12.34vw, 14.8125rem);
+    --active-width: clamp(16rem, 23.28vw, 27.9375rem);
+  
+    display: grid;
+    grid-template-columns: 1fr var(--stage-width);
+    align-items: end;
+    column-gap: clamp(3rem, 6vw, 8rem);
+  
+    position: relative;
+    min-height: var(--stage-height);
+  }
+  
+  /* =========================
+     Stage (info box)
+     ========================= */
+  .stage {
+    grid-column: 2;
+    position: relative;
+    z-index: 1;
+  
+    width: var(--stage-width);
+    height: var(--stage-height);
+  
+    padding: var(--stage-pad-y) var(--stage-pad-x);
+    background: var(--surface-invert);
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  
+    color: var(--text-invert);
+    text-align: right;
+    box-sizing: border-box;
+  }
 
-.title {
-  margin: 0;
-  font-size: clamp(2.5rem, 5vw, 6rem);
-  font-weight: 300;
-  line-height: 0.96;
-  color: var(--color-ink);
-  text-align: right;
-}
+  .stageContent {
+    width: clamp(13rem, 17vw, 15.1875rem); /* 243px */
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: clamp(3.5rem, 6vw, 5.3125rem); /* 85px */
+  }
 
-/* =========================
-   Layout
-   ========================= */
-.layout {
-  /* Figma (desktop) specs */
-  --stage-width: 38.5625rem;
-  --stage-height: 59.875rem;
-  --stage-pad-y: 12.3125rem;
-  --stage-pad-x: 6.6875rem;
+  .stageTitle {
+    margin: 0;
+    font-size: 1.5rem; /* 24px */
+    font-weight: 900; /* Heebo Black */
+    line-height: 1;
+    width: 100%;
+  }
+  
+  .stageBody {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: clamp(2rem, 3.5vw, 2.8125rem); /* 45px */
+  }
 
-  --carousel-width: 85.375rem;
-  --carousel-gap: 5rem;
+  .stageMeta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4375rem; /* 7px */
+    font-size: 1.5rem; /* 24px */
+    font-weight: var(--font-weight-light);
+    line-height: 1.63;
+  }
 
-  --thumb-height: 14.8125rem;
-  --thumb-width: 11.125rem;
-  --active-width: 27.9375rem;
+  .stageMetaText {
+    margin: 0;
+  }
 
-  display: grid;
-  grid-template-columns: 1fr var(--stage-width);
-  align-items: end;
-  column-gap: clamp(4rem, 8vw, 8rem);
+  .stageQuoteBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.3125rem; /* 21px */
+  }
 
-  position: relative;
-  min-height: var(--stage-height);
-}
+  .divider {
+    width: 4.125rem; /* 66px */
+    height: 1px;
+    background: var(--divider-on-dark);
+  }
 
-/* =========================
-   Stage (info box)
-   ========================= */
-.stage {
-  grid-column: 2;
-  position: relative;
-  z-index: 1;
+  .stageQuote {
+    margin: 0;
+    width: 100%;
+    font-size: 1.5rem; /* 24px */
+    font-weight: var(--font-weight-regular);
+    line-height: 1;
+  }
+  
+  /* =========================
+     Active image slot (geometry only)
+     ========================= */
+  .stageImageSlot {
+    width: var(--active-width);
+    height: var(--thumb-height);
+    aspect-ratio: 149 / 79;
 
-  width: var(--stage-width);
-  height: var(--stage-height);
-  padding: var(--stage-pad-y) var(--stage-pad-x);
-  background: var(--surface-invert);
-  box-sizing: border-box;
+    /* Overlay slot inside the info box (below the content wrapper) */
+    position: absolute;
+    inset-inline-end: var(--stage-pad-x);
+    inset-block-end: var(--stage-pad-y);
+    z-index: 3;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 2rem;
+    overflow: hidden;
+    pointer-events: none;
+  }
 
-  color: var(--text-invert);
-  text-align: right;
-}
+  .stageActiveImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  
+  /* =========================
+     Carousel
+     ========================= */
+  .carouselViewport {
+    /* Carousel sits on top of the info box, aligned with the slot */
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-end: var(--stage-pad-y);
+  
+    width: var(--carousel-width);
+    height: var(--thumb-height);
+  
+    overflow-x: auto;
+    overflow-y: visible;
+  
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  
+    direction: ltr;
+  
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  
+    z-index: 2;
+  }
+  
+  .carouselViewport::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .snapDisabled {
+    scroll-snap-type: none;
+  }
+  
+  .track {
+    display: flex;
+    align-items: center;
+    gap: var(--carousel-gap);
+  
+    width: max-content;
+    padding-inline: var(--carousel-gap);
+    box-sizing: border-box;
+  }
+  
+  /* =========================
+     Thumbnails
+     ========================= */
+  .thumb {
+    width: var(--thumb-width);
+    height: var(--thumb-height);
+    flex-shrink: 0;
+  
+    border: none;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+  
+    scroll-snap-align: center;
+  
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    transition:
+      width var(--duration-medium) var(--easing-standard),
+      transform var(--duration-medium) var(--easing-standard);
+  
+    position: relative;
+    z-index: 1;
+  }
+  
+  .thumbImage {
+    height: 100%;
+    width: auto;
+    max-width: none;
+    display: block;
+  }
+  
+  .thumb:hover {
+    transform: scale(1.05);
+  }
+  
+  .thumbActive {
+    width: var(--active-width);
+    z-index: 3;
+  }
+  
+  /* Active image: fill width, crop top/bottom (no distortion) */
+  .thumbActive .thumbImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.stageTitle {
-  margin: 0 0 1rem 0;
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
-  font-weight: 400;
-}
+  /* Hide the active item in the carousel so the slot shows it (no duplicate) */
+  .thumbGhost {
+    opacity: 0;
+    pointer-events: none;
+  }
 
-.stageDescription {
-  margin: 0;
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-  font-weight: 100;
-}
-
-/* =========================
-   Active slot (geometry target only)
-   ========================= */
-.stageImageSlot {
-  width: var(--active-width);
-  height: var(--thumb-height);
-  aspect-ratio: 149 / 79;
-  align-self: flex-end;
-  margin-top: auto;
-  pointer-events: none;
-}
-
-/* =========================
-   Carousel (infinite, overlays stage)
-   ========================= */
-.carouselViewport {
-  position: absolute;
-  inset-inline-start: 0;
-  bottom: var(--stage-pad-y);
-  width: var(--carousel-width);
-  height: var(--thumb-height);
-
-  overflow-x: auto;
-  overflow-y: visible;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-
-  /* Make scrollLeft behave consistently (LTR) even in RTL page */
-  direction: ltr;
-
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  z-index: 2;
-}
-
-.carouselViewport::-webkit-scrollbar {
-  display: none;
-}
-
-.track {
-  display: flex;
-  align-items: flex-end;
-  gap: var(--carousel-gap);
-  width: max-content;
-
-  /* Breathing room so the first/last items can center cleanly */
-  padding-inline: var(--carousel-gap);
-  box-sizing: border-box;
-}
-
-/* =========================
-   Thumbnail
-   ========================= */
-.thumb {
-  height: var(--thumb-height);
-  width: var(--thumb-width);
-  flex-shrink: 0;
-
-  border: none;
-  padding: 0;
-  cursor: pointer;
-
-  scroll-snap-align: center;
-  opacity: 1;
-  transition: transform var(--duration-medium) var(--easing-standard);
-
-  background: transparent;
-  position: relative;
-  z-index: 1;
-}
-
-.thumbFrame {
-  /* Visual frame that can expand without affecting layout width */
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
-  height: 100%;
-  width: 100%;
-
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  pointer-events: none;
-}
-
-.thumbImage {
-  height: 100%;
-  display: block;
-  width: auto;
-  max-width: none;
-}
-
-.thumb:hover {
-  transform: scale(1.05);
-}
-
-.thumbActive {
-  z-index: 3;
-}
-
-.thumbActive:hover {
-  transform: none;
-}
-
-.thumbActive .thumbFrame {
-  width: var(--active-width);
-}
-
-/* =========================
-   Mobile – reserved
-   ========================= */
-@media (max-width: 48rem) {
-  /*
-    Mobile layout
-    Will be implemented separately.
-  */
-}
+  .thumbActive:hover {
+    transform: none;
+  }
+  
+  
+  @media (max-width: 48rem) {
+    /*
+      Mobile layout
+      Will be implemented separately.
+    */
+  }
   
