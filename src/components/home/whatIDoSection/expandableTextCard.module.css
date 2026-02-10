@@ -49,5 +49,6 @@
   font-weight: 100;
   line-height: normal;
   text-transform: uppercase;
+  white-space: pre-line;
   min-height: 0;
 }

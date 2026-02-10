@@ -9,7 +9,7 @@
   height: 41.6875rem;
   padding: 4.875rem 3.125rem;
   margin: 0 auto;
-  background: #b2b2b2;
+  background: #E9EDEE;
   box-sizing: border-box;
 }
 
@@ -51,6 +51,8 @@
 
   text-align: center;
 
+  white-space: pre-line;
+
   text-wrap: pretty;
 }
 
@@ -72,7 +74,7 @@
 
 .button {
   padding: 0.75rem 1.5rem;
-  background: #b2b2b2;
+  background: #E9EDEE;
   color: #000;
   font-family: Heebo, sans-serif;
   font-size: 1.25rem;

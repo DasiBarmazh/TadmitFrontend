@@ -4,12 +4,9 @@ import heroImage from '../../../imgs/1.png'
 
 export function Hero() {
   return (
-    <section
-      className={styles.hero}
-      style={{ ['--hero-bg-image' as string]: `url(${heroImage})` }}
-    >
-      <div className={styles.imageWrapper}>
-        <div className={styles.placeholder} />
+    <section className={styles.hero}>
+      <div className={styles.imageLayer}>
+        <img src={heroImage} alt="" className={styles.image} />
       </div>
       <div className={styles.overlay}>
         <p className={styles.headline} style={{ whiteSpace: 'pre-line' }}>

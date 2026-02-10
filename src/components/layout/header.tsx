@@ -16,9 +16,7 @@ export function Header({ onMenuClick }: HeaderProps) {
         onClick={onMenuClick}
         aria-label={TEXTS.menu}
       >
-        <span className={styles.line} />
-        <span className={styles.line} />
-        <span className={styles.line} />
+        <span className={styles.hamburger} aria-hidden="true" />
       </button>
     </header>
   )
