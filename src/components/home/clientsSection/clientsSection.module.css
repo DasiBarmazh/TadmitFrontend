@@ -1,93 +1,223 @@
+/* =========================
+   Section
+   ========================= */
 .section {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 2rem;
-  padding: 3rem 2rem;
-  align-items: start;
-  max-width: 75rem;
-  margin: 0 auto;
+  background: var(--surface-page);
+  padding-block: clamp(6rem, 12vw, 10rem);
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-@media (max-width: 48rem) {
-  .section {
-    grid-template-columns: 1fr;
-  }
+.inner {
+  position: relative;
+  direction: rtl;
 }
 
-.leftColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  min-width: 0;
-}
-
+/* =========================
+   Title
+   ========================= */
 .titleBlock {
-  background: var(--color-bg-cta);
-  padding: 2rem 1.5rem;
-  border-radius: var(--radius-card);
+  display: inline-flex;
+  padding: 4.375rem 3.3125rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.625rem;
+  background: var(--color-sand-300);
+  margin-bottom: clamp(4rem, 8vw, 6rem);
 }
 
 .title {
   margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-bg-card);
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  font-weight: 300;
+  line-height: 0.96;
+  color: var(--color-ink);
   text-align: right;
 }
 
-.panel {
-  background: var(--color-bg-dark);
-  border-radius: var(--radius-card);
-  padding: 1.5rem;
+/* =========================
+   Layout
+   ========================= */
+.layout {
+  /* Figma (desktop) specs */
+  --stage-width: 38.5625rem;
+  --stage-height: 59.875rem;
+  --stage-pad-y: 12.3125rem;
+  --stage-pad-x: 6.6875rem;
+
+  --carousel-width: 85.375rem;
+  --carousel-gap: 5rem;
+
+  --thumb-height: 14.8125rem;
+  --thumb-width: 11.125rem;
+  --active-width: 27.9375rem;
+
+  display: grid;
+  grid-template-columns: 1fr var(--stage-width);
+  align-items: end;
+  column-gap: clamp(4rem, 8vw, 8rem);
+
+  position: relative;
+  min-height: var(--stage-height);
+}
+
+/* =========================
+   Stage (info box)
+   ========================= */
+.stage {
+  grid-column: 2;
+  position: relative;
+  z-index: 1;
+
+  width: var(--stage-width);
+  height: var(--stage-height);
+  padding: var(--stage-pad-y) var(--stage-pad-x);
+  background: var(--surface-invert);
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  min-height: 20rem;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 2rem;
+
+  color: var(--text-invert);
   text-align: right;
 }
 
-.panelName {
+.stageTitle {
+  margin: 0 0 1rem 0;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 400;
+}
+
+.stageDescription {
   margin: 0;
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--color-bg-card);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-weight: 100;
 }
 
-.panelMeta {
-  margin: 0;
-  font-size: 0.875rem;
-  color: var(--color-slate-300);
-}
-
-.panelDivider {
-  border: 0;
-  border-top: 0.0625rem solid var(--color-slate-600);
-  margin: 0.25rem 0;
-}
-
-.panelText {
-  margin: 0;
-  color: var(--color-slate-200);
-  line-height: 1.6;
-}
-
-.panelImage {
+/* =========================
+   Active slot (geometry target only)
+   ========================= */
+.stageImageSlot {
+  width: var(--active-width);
+  height: var(--thumb-height);
+  aspect-ratio: 149 / 79;
+  align-self: flex-end;
   margin-top: auto;
+  pointer-events: none;
+}
+
+/* =========================
+   Carousel (infinite, overlays stage)
+   ========================= */
+.carouselViewport {
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: var(--stage-pad-y);
+  width: var(--carousel-width);
+  height: var(--thumb-height);
+
+  overflow-x: auto;
+  overflow-y: visible;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+
+  /* Make scrollLeft behave consistently (LTR) even in RTL page */
+  direction: ltr;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  z-index: 2;
+}
+
+.carouselViewport::-webkit-scrollbar {
+  display: none;
+}
+
+.track {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--carousel-gap);
+  width: max-content;
+
+  /* Breathing room so the first/last items can center cleanly */
+  padding-inline: var(--carousel-gap);
+  box-sizing: border-box;
+}
+
+/* =========================
+   Thumbnail
+   ========================= */
+.thumb {
+  height: var(--thumb-height);
+  width: var(--thumb-width);
+  flex-shrink: 0;
+
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  scroll-snap-align: center;
+  opacity: 1;
+  transition: transform var(--duration-medium) var(--easing-standard);
+
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.thumbFrame {
+  /* Visual frame that can expand without affecting layout width */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  height: 100%;
   width: 100%;
-  aspect-ratio: 4/3;
-  max-height: 15rem;
-  border-radius: var(--radius-card);
+
   overflow: hidden;
-  background: repeating-conic-gradient(var(--color-slate-600) 0% 25%, var(--color-slate-500) 0% 50%) 50% / 1.25rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-slate-400);
-  font-size: 0.875rem;
+
+  pointer-events: none;
 }
 
-.panelImage img {
-  width: 100%;
+.thumbImage {
   height: 100%;
-  object-fit: cover;
+  display: block;
+  width: auto;
+  max-width: none;
 }
+
+.thumb:hover {
+  transform: scale(1.05);
+}
+
+.thumbActive {
+  z-index: 3;
+}
+
+.thumbActive:hover {
+  transform: none;
+}
+
+.thumbActive .thumbFrame {
+  width: var(--active-width);
+}
+
+/* =========================
+   Mobile – reserved
+   ========================= */
+@media (max-width: 48rem) {
+  /*
+    Mobile layout
+    Will be implemented separately.
+  */
+}
+  
