@@ -2,69 +2,81 @@
    Section
    ========================= */
    .section {
-    --section-pad: clamp(1rem, 3vw, 3rem);
+    position: relative;
+    direction: rtl;
+    width: 100%;
+  
+    --section-pad: clamp(1.5rem, 4vw, 3rem);
+  
+    padding: var(--section-pad) 0 var(--section-pad) var(--section-pad);
     background: var(--surface-page);
-    padding-top: var(--section-pad);
-    padding-bottom: var(--section-pad);
-    padding-left: var(--section-pad);
-    padding-right: 0;
-
     box-sizing: border-box;
     overflow: hidden;
   }
   
   .inner {
     position: relative;
-    direction: rtl;
   }
   
- 
-     .titleBlock {
-      position: absolute;
-      inset-inline-end: 0;         
-      top: clamp(0rem, 3vw, 4rem);  
-      z-index: 2;
-    
-      margin-bottom: 0; 
-     }
-
+  /* =========================
+     Title
+     ========================= */
+  .titleBlock {
+    position: absolute;
+    inset-inline-start: 0;
+    top: clamp(1rem, 2.5vw, 3rem);
+    z-index: 2;
+  
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+  
+    padding:
+      clamp(2.5rem, 4vw, 4.375rem)
+      clamp(2rem, 4vw, 3.3125rem);
+  
+    gap: clamp(0.4rem, 0.8vw, 0.625rem);
+  
+    background: #c9b499;
+  }
+  
   .title {
     margin: 0;
     font-size: clamp(2.4rem, 5vw, 6rem);
-    font-weight: var(--font-weight-thin);
+    font-weight: var(--font-weight-light);
     line-height: 0.96;
     color: var(--color-ink);
     text-align: right;
   }
   
-  
+  /* =========================
+     Layout
+     ========================= */
   .layout {
-    /* Stage (info box) */
-    --stage-width: clamp(22rem, 32.14vw, 38.5625rem);
-    --stage-height: clamp(36rem, 49.9vw, 59.875rem);
-    --stage-pad-y: clamp(6rem, 10.26vw, 12.3125rem);
-    --stage-pad-x: clamp(3rem, 5.57vw, 6.6875rem);
+    --stage-width: clamp(22rem, 38vw, 38.56rem);
+    --stage-height: clamp(36rem, 55vw, 59.87rem);
   
-    /* Carousel */
-    --carousel-width: clamp(60rem, 71.15vw, 85.375rem);
-    --carousel-gap: clamp(2.5rem, 4.17vw, 5rem);
+    --stage-pad-y: clamp(3rem, 6vw, 6rem);
+    --stage-pad-x: clamp(3rem, 5.5vw, 6.6875rem);
   
-    /* Thumbnails */
-    --thumb-width: clamp(7rem, 9.27vw, 11.125rem);
-    --thumb-height: clamp(9rem, 12.34vw, 14.8125rem);
-    --active-width: clamp(16rem, 23.28vw, 27.9375rem);
+    --carousel-width: clamp(50rem, 75vw, 85.375rem);
+    --carousel-gap: clamp(2rem, 4vw, 5rem);
+  
+    --thumb-width: clamp(6rem, 9vw, 11.125rem);
+    --thumb-height: clamp(8rem, 12vw, 14.8125rem);
+    --active-width: clamp(14rem, 23vw, 27.9375rem);
   
     display: grid;
     grid-template-columns: 1fr var(--stage-width);
     align-items: end;
-    column-gap: clamp(3rem, 6vw, 8rem);
+    column-gap: clamp(2rem, 5vw, 8rem);
   
     position: relative;
     min-height: var(--stage-height);
   }
   
   /* =========================
-     Stage (info box)
+     Stage
      ========================= */
   .stage {
     grid-column: 2;
@@ -79,107 +91,90 @@
   
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
+    align-items: flex-start;
   
     color: var(--text-invert);
     text-align: right;
     box-sizing: border-box;
   }
-
+  
   .stageContent {
-    width: clamp(13rem, 17vw, 15.1875rem); /* 243px */
-    align-self: flex-end;
+    width: clamp(11rem, 18vw, 15.1875rem);
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: clamp(3.5rem, 6vw, 5.3125rem); /* 85px */
+    gap: clamp(1.5rem, 4vw, 5.3125rem);
   }
-
+  
   .stageTitle {
     margin: 0;
-    font-size: 1.5rem; /* 24px */
-    font-weight: 900; /* Heebo Black */
-    line-height: 1;
-    width: 100%;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    font-weight: 900;
+    line-height: 1.2;
   }
   
   .stageBody {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: clamp(2rem, 3.5vw, 2.8125rem); /* 45px */
+    gap: clamp(1rem, 3vw, 2.8125rem);
   }
-
+  
   .stageMeta {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 0.4375rem; /* 7px */
-    font-size: 1.5rem; /* 24px */
+    gap: clamp(0.3rem, 0.8vw, 0.4375rem);
+  
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
     font-weight: var(--font-weight-light);
-    line-height: 1.63;
+    line-height: 1.6;
   }
-
-  .stageMetaText {
-    margin: 0;
-  }
-
+  
   .stageQuoteBlock {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 1.3125rem; /* 21px */
+    gap: clamp(0.8rem, 2vw, 1.3125rem);
   }
-
+  
   .divider {
-    width: 4.125rem; /* 66px */
+    width: clamp(2.5rem, 5vw, 4.125rem);
     height: 1px;
     background: var(--divider-on-dark);
   }
-
+  
   .stageQuote {
     margin: 0;
-    width: 100%;
-    font-size: 1.5rem; /* 24px */
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
     font-weight: var(--font-weight-regular);
-    line-height: 1;
+    line-height: 1.5;
+    text-align: right;
   }
   
   /* =========================
-     Active image slot (geometry only)
+     Active image slot
      ========================= */
   .stageImageSlot {
     width: var(--active-width);
     height: var(--thumb-height);
     aspect-ratio: 149 / 79;
-
-    /* Overlay slot inside the info box (below the content wrapper) */
+  
     position: absolute;
     inset-inline-end: var(--stage-pad-x);
     inset-block-end: var(--stage-pad-y);
     z-index: 3;
-
+  
     overflow: hidden;
     pointer-events: none;
   }
-
+  
   .stageActiveImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    display: block;
   }
   
   /* =========================
      Carousel
      ========================= */
   .carouselViewport {
-    /* Carousel sits on top of the info box, aligned with the slot */
     position: absolute;
     inset-inline-start: 0;
     inset-block-end: var(--stage-pad-y);
@@ -203,10 +198,6 @@
   
   .carouselViewport::-webkit-scrollbar {
     display: none;
-  }
-  
-  .snapDisabled {
-    scroll-snap-type: none;
   }
   
   .track {
@@ -263,28 +254,20 @@
     z-index: 3;
   }
   
-  /* Active image: fill width, crop top/bottom (no distortion) */
   .thumbActive .thumbImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-
-  /* Hide the active item in the carousel so the slot shows it (no duplicate) */
+  
   .thumbGhost {
     opacity: 0;
     pointer-events: none;
   }
-
+  
   .thumbActive:hover {
     transform: none;
   }
   
-  
-  @media (max-width: 48rem) {
-    /*
-      Mobile layout
-      Will be implemented separately.
-    */
-  }
+  @media (max-width: 48rem) {}
   

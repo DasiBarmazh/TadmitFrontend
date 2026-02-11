@@ -15,8 +15,8 @@
 
 .title {
   margin: 0 0 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: var(--space-9);
+  font-weight: var(--font-weight-light);
   color: var(--color-slate-200);
   text-align: right;
 }

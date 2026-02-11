@@ -51,7 +51,6 @@ export function ClientsSection({ clients = CLIENTS }: ClientsSectionProps) {
             </div>
           </div>
 
-          {/* Active image slot (only the active image lives here) */}
           <div ref={slotRef} className={styles.stageImageSlot} aria-hidden>
             <img
               src={activeClient.image}

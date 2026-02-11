@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: clamp(42rem, 60vw, 60rem);
+  min-height: clamp(40rem, 58vw, 58rem);
   overflow: hidden;
 
   background: var(--surface-page);

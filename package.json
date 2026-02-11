@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@builder.io/react": "^9.1.0",
     "@reduxjs/toolkit": "^2.11.2",
     "axios": "^1.13.4",
     "embla-carousel": "^8.6.0",
